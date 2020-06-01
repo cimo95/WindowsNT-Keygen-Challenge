@@ -27,7 +27,7 @@ implementation
 
 {$R *.dfm}
 
-function a(b: LongInt): string;
+function a(b: Integer): string;
 begin
   result := '';
   repeat
@@ -92,9 +92,8 @@ begin
     until MatchStr(f, c);
     repeat
       g := a(6);
-      i := 0;
       for h := 1 to 6 do
-        i := i + string.ToInteger(g[h]);
+        i := i + strtoint(g[h]);
       i := i mod 7;
     until i = 0;
     d.Lines.Add(e + f + '-OEM-0' + g + '-' + a(5));
