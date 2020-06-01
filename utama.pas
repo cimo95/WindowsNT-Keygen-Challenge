@@ -40,8 +40,8 @@ const
   c: array[0..6] of string = ('333', '444', '555', '666', '777', '888', '999');
 var
   d: TMemo;
-  e, f, g: string;
-  h, i: Integer;
+  e, f: string;
+  g, h: Integer;
 begin
   d := TMemo.Create(nil);
   d.Parent := _a;
@@ -54,14 +54,14 @@ begin
     repeat
       f := a(6);
       repeat
-        g := a(1);
-      until (StrToInt(g) >= 1) and (StrToInt(g) <= 7);
-      f := f + g;
-      i := 0;
-      for h := 1 to 7 do
-        i := i + StrToInt(f[h]);
-      i := i mod 7;
-    until i = 0;
+        randomize;
+        g := random(7);
+      until g >= 1;
+      f := f + inttostr(g);
+      for g := 1 to 7 do
+        h := h + StrToInt(f[g]);
+      h := h mod 7;
+    until h = 0;
     d.Lines.Add(e + '-' + f);
   until d.Lines.Count = _e.Value;
   d.SelectAll;
